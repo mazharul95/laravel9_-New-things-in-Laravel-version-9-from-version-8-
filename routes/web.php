@@ -15,12 +15,22 @@ use Psy\Util\Str;
 |
 */
 
-Route::get('/', function () {
-   //laravel 8 str helper function 
-    return str::of('hello world')->append(' and everyone else');
-   //laravel 9 str helper function
-   return str('hello world');
-    //return view('welcome');
+// Route::get('/', function () {
+//    //laravel 8 str helper function 
+//     return str::of('hello world')->append(' and everyone else');
+//    //laravel 9 str helper function
+//    return str('hello world');
+//     //return view('welcome');
+// });
+
+Route::get('/', function(){
+    return view('welcome');
+})->name('home');
+
+Route::get('/endpoint', function(){
+    //laravel 9 new helper function to_route 
+    //to_route that will return a redirect response;
+    return to_route('home');
 });
 
 Route::controller(PostController::class)->group(function () {
