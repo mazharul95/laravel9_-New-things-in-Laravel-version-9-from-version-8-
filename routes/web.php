@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use Psy\Util\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   //laravel 8 str helper function 
+    return str::of('hello world')->append(' and everyone else');
+   //laravel 9 str helper function
+   return str('hello world');
+    //return view('welcome');
 });
 
 Route::controller(PostController::class)->group(function () {
