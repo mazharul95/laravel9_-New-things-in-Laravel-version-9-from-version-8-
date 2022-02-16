@@ -39,5 +39,11 @@ Route::controller(PostController::class)->group(function () {
     Route::post('/posts', 'store');
 
 });
+//laravel9 - Refreshed Ignition Error Page
+Route::get('/', function(){
+    throw new \Exception('whoops');
+
+    return view('welcome');
+});
 
  
