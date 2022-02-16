@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Psy\Util\Str;
 
@@ -39,11 +40,16 @@ Route::controller(PostController::class)->group(function () {
     Route::post('/posts', 'store');
 
 });
-//laravel9 - Refreshed Ignition Error Page
+// //laravel9 - Refreshed Ignition Error Page
+// Route::get('/', function(){
+//     throw new \Exception('whoops');
+
+//     return view('welcome');
+// });
+
 Route::get('/', function(){
-    throw new \Exception('whoops');
-
-    return view('welcome');
-});
-
- 
+    
+        return Blade::render('{{ $greeting }}, World', ['greeting' => 'Hello']);
+         return view('welcome');
+     });
+     
