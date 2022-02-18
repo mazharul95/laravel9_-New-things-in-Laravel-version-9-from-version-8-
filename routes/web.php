@@ -54,7 +54,7 @@ Route::get('/endpoint', function(){
 // });
 
 Route::get('/', function(){
-
+//laravel9 - Render a Blade String
         return Blade::render('{{ $greeting }}, World', ['greeting' => 'Hello']);
          return view('welcome');
      });
@@ -63,4 +63,10 @@ Route::get('/', function(){
 route::get('/users/{user}/posts/{post}', function(User $user, Post $post) {
     return $post;
 })->scopeBindings();     
-     
+
+
+
+Route::get('/', function(){
+    return Post::search('occaecati')->paginate();
+});     
+ 
