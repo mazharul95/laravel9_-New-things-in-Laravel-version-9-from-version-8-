@@ -1,4 +1,6 @@
 <?php
+
+use App\Enums\PostState;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,6 +21,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
             $table->string('title');
             $table->text('body')->fulltext();
+            $table->string('state')->default('draft');
             $table->timestamps();
         });
     }
