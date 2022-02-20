@@ -73,7 +73,7 @@ use Psy\Util\Str;
 // });
 
   //laravel9 - Enum Attribute Casting
-Route::get('/posts/{state}', function(PostState $state){
-    dd($state);
+Route::get('/posts/{post}', function(Post $post){
+    return $post;
 
-});
+})->name('posts.show');
